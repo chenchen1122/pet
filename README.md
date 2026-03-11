@@ -1,6 +1,8 @@
 # 电子宠物小狗 MyDog
 
-基于 Flask 的网页版电子宠物小狗，使用 Session 存储状态，无需数据库。
+基于 Flask 的网页版电子宠物小狗。提供两种运行方式：
+- **Flask 版**：使用 Session 存储，需本地运行
+- **GitHub Pages 版**：纯前端，使用 localStorage，可在手机浏览器打开
 
 ## 功能特性
 
@@ -34,6 +36,18 @@ python app.py
 
 浏览器访问：http://127.0.0.1:5000
 
+## GitHub Pages 部署（手机可访问）
+
+1. 将代码推送到 GitHub 仓库
+2. 打开仓库 **Settings** → **Pages**
+3. **Source** 选择 **Deploy from a branch**
+4. **Branch** 选 `master`，**Folder** 选 `/docs`
+5. 保存后等待部署完成
+
+访问地址：`https://<你的用户名>.github.io/pet/`
+
+> `docs/` 目录为纯前端静态版，使用 localStorage 存储，无后端，可在手机浏览器直接打开。
+
 ## 项目结构
 
 ```
@@ -41,15 +55,19 @@ mydog/
 ├── app.py              # Flask 主应用
 ├── requirements.txt
 ├── README.md
+├── docs/               # GitHub Pages 静态版（纯前端）
+│   ├── index.html
+│   ├── css/style.css
+│   └── js/
+│       ├── main.js
+│       └── game.js
 ├── templates/
-│   └── index.html      # 主页面
+│   └── index.html      # Flask 主页面
 └── static/
-    ├── css/
-    │   └── style.css   # 样式表
-    ├── js/
-    │   ├── main.js     # 宠物绘制、动画、AJAX
-    │   └── game.js     # 接球小游戏
-    └── images/         # 可放图标等
+    ├── css/style.css
+    └── js/
+        ├── main.js
+        └── game.js
 ```
 
 ## API 说明

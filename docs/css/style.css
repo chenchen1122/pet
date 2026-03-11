@@ -1,0 +1,390 @@
+/* 电子宠物小狗 - 粉彩可爱风格 | GitHub Pages 静态版 */
+
+:root {
+    --bg: #FFF5F7;
+    --card: #FFE4EC;
+    --accent: #FF9EBB;
+    --accent2: #FFB6C1;
+    --text: #5D4E60;
+    --shadow: rgba(255, 105, 135, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #FFF0F5 0%, #FFE4EC 50%, #FFF5F7 100%);
+    min-height: 100vh;
+    color: var(--text);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.name-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.name-area h1 {
+    font-size: 1.8rem;
+    color: var(--text);
+}
+
+.btn-edit {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s;
+}
+
+.btn-edit:hover {
+    transform: scale(1.1);
+}
+
+.edit-name-form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.edit-name-form.hidden {
+    display: none !important;
+}
+
+.name-area input {
+    padding: 6px 12px;
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    font-size: 1rem;
+    width: 120px;
+}
+
+.btn-save, .btn-cancel {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-save {
+    background: #87CEEB;
+    color: #333;
+}
+
+.btn-cancel {
+    background: #ddd;
+    color: #666;
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.controls select {
+    padding: 8px 14px;
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    background: white;
+    cursor: pointer;
+}
+
+.accessory-btns {
+    display: flex;
+    gap: 6px;
+}
+
+.acc-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background: var(--card);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+}
+
+.acc-btn:hover, .acc-btn.active {
+    border-color: var(--accent);
+    background: var(--accent2);
+    transform: scale(1.05);
+}
+
+.main {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 8px 32px var(--shadow);
+    margin-bottom: 20px;
+}
+
+.pet-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+    margin-bottom: 20px;
+}
+
+#pet-canvas {
+    display: block;
+    border-radius: 16px;
+    max-width: 100%;
+    height: auto;
+}
+
+.status-area {
+    margin-bottom: 20px;
+}
+
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.status-icon {
+    font-size: 1.2rem;
+}
+
+.status-label {
+    width: 60px;
+    font-size: 0.95rem;
+}
+
+.bar-wrap {
+    flex: 1;
+    height: 20px;
+    background: #e8e0e5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.bar.energy { background: linear-gradient(90deg, #FFD93D, #FF9F43); }
+.bar.happiness { background: linear-gradient(90deg, #FF9EBB, #FF6B9D); }
+.bar.cleanliness { background: linear-gradient(90deg, #6BCB77, #4D96FF); }
+
+.status-val {
+    width: 36px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.growth-info {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 8px;
+}
+
+.action-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    background: var(--accent);
+    color: white;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow);
+}
+
+.action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.action-btn.feed { background: #FF9F43; }
+.action-btn.play { background: #6BCB77; }
+.action-btn.bathe { background: #4D96FF; }
+.action-btn.sleep { background: #9B59B6; }
+.action-btn.game { background: #E74C3C; }
+
+.diary-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 220px;
+    max-height: 300px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 8px 32px var(--shadow);
+}
+
+.diary-sidebar h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+#diary-list {
+    list-style: none;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.diary-item {
+    padding: 8px 0;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0e0e5;
+}
+
+.diary-item:last-child {
+    border-bottom: none;
+}
+
+.diary-time {
+    color: #999;
+    margin-right: 6px;
+}
+
+.event-toast {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 14px 24px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 12px;
+    font-size: 1rem;
+    z-index: 100;
+    animation: toastIn 0.3s ease;
+}
+
+.event-toast.hidden {
+    display: none;
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.game-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.game-overlay.hidden {
+    display: none;
+}
+
+.game-box {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    max-width: 90%;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+
+.game-box h3 {
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+#game-canvas {
+    display: block;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background: #f8f8f8;
+}
+
+.game-hint {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.btn-close-game {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 12px;
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .diary-sidebar {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #pet-canvas {
+        max-width: 100%;
+    }
+}

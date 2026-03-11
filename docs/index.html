@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子宠物小狗 - GitHub Pages 版</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="name-area">
+                <h1 id="pet-name">小比</h1>
+                <button class="btn-edit" id="btn-edit-name" title="修改名字">✏️</button>
+                <div class="edit-name-form hidden" id="edit-name-form">
+                    <input type="text" id="name-input" maxlength="20" placeholder="新名字">
+                    <button class="btn-save" id="btn-save-name">保存</button>
+                    <button class="btn-cancel" id="btn-cancel-edit">取消</button>
+                </div>
+            </div>
+            <div class="controls">
+                <select id="breed-select" title="切换形象">
+                    <option value="beagle" selected>比格犬</option>
+                    <option value="pomeranian">博美</option>
+                    <option value="shiba">柴犬</option>
+                </select>
+                <div class="accessory-btns">
+                    <button class="acc-btn active" data-acc="none" title="无">🐾</button>
+                    <button class="acc-btn" data-acc="hat" title="帽子">🎩</button>
+                    <button class="acc-btn" data-acc="scarf" title="围巾">🧣</button>
+                    <button class="acc-btn" data-acc="glasses" title="眼镜">👓</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="pet-area">
+                <canvas id="pet-canvas" width="400" height="350"></canvas>
+            </div>
+
+            <div class="status-area">
+                <div class="status-bar">
+                    <span class="status-icon">⚡</span>
+                    <span class="status-label">体力</span>
+                    <div class="bar-wrap"><div class="bar energy" id="bar-energy" style="width: 80%"></div></div>
+                    <span class="status-val" id="val-energy">80</span>
+                </div>
+                <div class="status-bar">
+                    <span class="status-icon">😊</span>
+                    <span class="status-label">开心值</span>
+                    <div class="bar-wrap"><div class="bar happiness" id="bar-happiness" style="width: 70%"></div></div>
+                    <span class="status-val" id="val-happiness">70</span>
+                </div>
+                <div class="status-bar">
+                    <span class="status-icon">✨</span>
+                    <span class="status-label">清洁度</span>
+                    <div class="bar-wrap"><div class="bar cleanliness" id="bar-cleanliness" style="width: 100%"></div></div>
+                    <span class="status-val" id="val-cleanliness">100</span>
+                </div>
+                <div class="growth-info">成长值: <span id="val-growth">0</span></div>
+            </div>
+
+            <div class="action-btns">
+                <button class="action-btn feed" id="btn-feed">🍖 喂食</button>
+                <button class="action-btn play" id="btn-play">🎾 玩耍</button>
+                <button class="action-btn bathe" id="btn-bathe">🛁 洗澡</button>
+                <button class="action-btn sleep" id="btn-sleep">😴 睡觉</button>
+                <button class="action-btn game" id="btn-game">🎯 接球</button>
+            </div>
+        </main>
+
+        <aside class="diary-sidebar">
+            <h3>📔 心情日记</h3>
+            <ul id="diary-list"></ul>
+        </aside>
+
+        <div id="event-toast" class="event-toast hidden"></div>
+    </div>
+
+    <div id="game-overlay" class="game-overlay hidden">
+        <div class="game-box">
+            <h3>🎯 接球游戏</h3>
+            <canvas id="game-canvas" width="400" height="300"></canvas>
+            <p class="game-hint">点击屏幕扔出飞盘，看小狗能不能接住！</p>
+            <button class="btn-close-game" id="btn-close-game">关闭</button>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
